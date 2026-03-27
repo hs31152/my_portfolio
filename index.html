@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
     <title>Harshit Sharma | SRE · TechOps Architect | 99.9% Uptime Engineer</title>
     <!-- Tailwind + Font Awesome + Google Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -19,11 +19,13 @@
         }
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
         body {
             background: #020617;
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
+            width: 100%;
         }
         .heading-font {
             font-family: 'Space Grotesk', sans-serif;
@@ -41,7 +43,7 @@
         .section-header::after {
             content: '';
             position: absolute;
-            width: 80px;
+            width: 60px;
             height: 4px;
             background: linear-gradient(95deg, #00d4aa, #3b82f6, #a855f7);
             bottom: -12px;
@@ -80,9 +82,6 @@
             0%, 100% { transform: translateY(0px) rotate(0deg); }
             50% { transform: translateY(-15px) rotate(2deg); }
         }
-        .glow-border {
-            position: relative;
-        }
         .stat-number {
             font-feature-settings: "tnum";
             font-variant-numeric: tabular-nums;
@@ -96,20 +95,6 @@
         ::-webkit-scrollbar-thumb {
             background: linear-gradient(#00d4aa, #3b82f6);
             border-radius: 10px;
-        }
-        /* Fix for side gaps - full width content with proper max-width */
-        .container-full {
-            width: 100%;
-        }
-        .no-side-gap {
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
-        }
-        @media (min-width: 1280px) {
-            .no-side-gap {
-                padding-left: 2rem;
-                padding-right: 2rem;
-            }
         }
         /* Hero typing effect */
         .typing-cursor {
@@ -134,165 +119,182 @@
             70% { box-shadow: 0 0 0 10px rgba(0, 212, 170, 0); }
             100% { box-shadow: 0 0 0 0 rgba(0, 212, 170, 0); }
         }
+        /* Mobile responsive fixes */
+        @media (max-width: 768px) {
+            .mobile-stack {
+                flex-direction: column;
+                text-align: center;
+            }
+            .mobile-text-center {
+                text-align: center;
+            }
+            .mobile-mt-4 {
+                margin-top: 1rem;
+            }
+            .section-header::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .section-header {
+                display: block;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body class="bg-[#020617] text-white">
 
-    <!-- PREMIUM NAVBAR - no side gaps issue -->
+    <!-- PREMIUM NAVBAR - mobile optimized -->
     <nav class="fixed top-0 w-full z-50 bg-[#020617]/80 backdrop-blur-xl border-b border-white/10 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#00d4aa] to-indigo-600 flex items-center justify-center shadow-lg shadow-[#00d4aa]/20">
-                    <span class="text-white font-bold text-2xl heading-font">HS</span>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4 flex items-center justify-between">
+            <div class="flex items-center gap-2 sm:gap-3">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-[#00d4aa] to-indigo-600 flex items-center justify-center shadow-lg shadow-[#00d4aa]/20">
+                    <span class="text-white font-bold text-xl sm:text-2xl heading-font">HS</span>
                 </div>
-                <span class="heading-font text-2xl font-bold tracking-tight"><span class="gradient-text">Harshit</span> Sharma</span>
+                <span class="heading-font text-xl sm:text-2xl font-bold tracking-tight"><span class="gradient-text">Harshit</span> Sharma</span>
             </div>
-            <div class="hidden md:flex items-center gap-8 text-slate-300 font-medium">
+            <div class="hidden md:flex items-center gap-6 lg:gap-8 text-slate-300 font-medium">
                 <a href="#home" class="hover:text-[#00d4aa] transition-colors duration-300">Home</a>
                 <a href="#about" class="hover:text-[#00d4aa] transition-colors duration-300">About</a>
                 <a href="#experience" class="hover:text-[#00d4aa] transition-colors duration-300">Experience</a>
                 <a href="#projects" class="hover:text-[#00d4aa] transition-colors duration-300">Projects</a>
                 <a href="#skills" class="hover:text-[#00d4aa] transition-colors duration-300">Skills</a>
             </div>
-            <div class="flex items-center gap-4">
-                <a href="https://github.com/hs31152" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#00d4aa] hover:text-black transition-all duration-300">
-                    <i class="fab fa-github text-xl"></i>
+            <div class="flex items-center gap-2 sm:gap-4">
+                <a href="https://github.com/hs31152" target="_blank" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#00d4aa] hover:text-black transition-all duration-300">
+                    <i class="fab fa-github text-base sm:text-xl"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/harshit-sharma-13aba4192/" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#0077b5] transition-all duration-300">
-                    <i class="fab fa-linkedin-in text-xl"></i>
+                <a href="https://www.linkedin.com/in/harshit-sharma-13aba4192/" target="_blank" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#0077b5] transition-all duration-300">
+                    <i class="fab fa-linkedin-in text-base sm:text-xl"></i>
                 </a>
-                <a href="#contact" class="hidden sm:flex items-center gap-2 bg-gradient-to-r from-[#00d4aa] to-blue-500 text-slate-900 px-6 py-2.5 rounded-full font-bold text-sm hover:scale-105 transition-all shadow-lg">
+                <a href="#contact" class="hidden sm:flex items-center gap-2 bg-gradient-to-r from-[#00d4aa] to-blue-500 text-slate-900 px-4 sm:px-6 py-2 rounded-full font-bold text-xs sm:text-sm hover:scale-105 transition-all shadow-lg">
                     <i class="fas fa-file-alt"></i> Resume
                 </a>
             </div>
         </div>
     </nav>
 
-    <!-- HERO SECTION - Strong hook, "Harshit's page" vibe, no side gap issues -->
-    <section id="home" class="relative min-h-screen flex items-center pt-28 pb-20 overflow-hidden hero-glow">
+    <!-- HERO SECTION - FULLY MOBILE RESPONSIVE -->
+    <section id="home" class="relative min-h-screen flex items-center pt-24 sm:pt-28 pb-16 sm:pb-20 overflow-hidden hero-glow">
         <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%2300d4aa" fill-opacity="0.03"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
-        <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full relative z-10">
-            <div class="grid lg:grid-cols-2 gap-8 items-center">
-                <div data-aos="fade-up" data-aos-duration="1000">
-                    <!-- Strong personal branding badge -->
-                    <div class="inline-flex items-center gap-2 bg-[#00d4aa]/15 rounded-full px-5 py-2.5 border border-[#00d4aa]/40 mb-6 backdrop-blur-sm hero-badge-pulse">
-                        <span class="relative flex h-3 w-3">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00d4aa] opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-3 w-3 bg-[#00d4aa]"></span>
-                        </span>
-                      <!--  <span class="text-sm font-mono tracking-wide text-[#00d4aa] font-semibold">⚡ HARSHIT SHARMA · SRE · TECHOPS LEAD</span>-->
-                    </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+            <div class="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <!-- Left Content - Mobile optimized -->
+                <div data-aos="fade-up" data-aos-duration="1000" class="text-center lg:text-left order-2 lg:order-1">
                     
-                    <!-- Main hook - personalized, bold -->
-                    <h1 class="heading-font text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] tracking-tight">
-                        Linux Automation<br>
-                        <span class="gradient-text">Reliability</span><br>
-                        Repeat
+                    <!-- Main hook - responsive font sizes -->
+                    <h1 class="heading-font text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.2] tracking-tight">
+                        Linux<br>
+                        <span class="gradient-text">Automation</span><br>
+                        Reliability
                     </h1>
                     
-                    <!-- Dynamic tagline with typed effect -->
-                    <div class="mt-6">
-                        <p class="text-2xl md:text-3xl text-slate-200 font-medium">
-                            I'm Harshit — 
+                    <!-- Dynamic tagline with typed effect - mobile friendly -->
+                    <div class="mt-4 sm:mt-6">
+                        <p class="text-xl sm:text-2xl md:text-3xl text-slate-200 font-medium">
+                            I'm Harshit Sharma — 
                             <span id="typed-text" class="text-[#00d4aa]"></span>
                             <span class="typing-cursor"></span>
                         </p>
                     </div>
                     
-                    <p class="text-lg text-slate-400 mt-5 max-w-xl leading-relaxed">
+                    <p class="text-base sm:text-lg text-slate-400 mt-4 sm:mt-5 max-w-xl mx-auto lg:mx-0 leading-relaxed">
                         Technical Operations Engineer with 4.5+ years of Linux automation, CI/CD mastery, and a relentless pursuit of <span class="text-white font-semibold">99.9% uptime</span>. I build infrastructure that never sleeps.
                     </p>
                     
-                    <div class="flex flex-wrap gap-5 mt-10">
-                        <a href="#projects" class="group relative overflow-hidden bg-gradient-to-r from-[#00d4aa] to-blue-500 text-slate-900 px-8 py-4 rounded-full font-bold text-lg transition-all shadow-2xl hover:shadow-[#00d4aa]/40 hover:scale-105">
+                    <!-- Buttons - mobile stack -->
+                    <div class="flex flex-col sm:flex-row gap-4 sm:gap-5 mt-8 sm:mt-10 justify-center lg:justify-start">
+                        <a href="#projects" class="group relative overflow-hidden bg-gradient-to-r from-[#00d4aa] to-blue-500 text-slate-900 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg transition-all shadow-2xl hover:shadow-[#00d4aa]/40 hover:scale-105 text-center">
                             <span>🚀 See My Work</span>
                         </a>
-                        <a href="mailto:harshitsharma31152@gmail.com" class="border-2 border-white/30 hover:border-[#00d4aa] hover:bg-[#00d4aa]/10 px-8 py-4 rounded-full font-semibold text-lg transition-all">
+                        <a href="mailto:harshitsharma31152@gmail.com" class="border-2 border-white/30 hover:border-[#00d4aa] hover:bg-[#00d4aa]/10 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg transition-all text-center">
                             <i class="fas fa-paper-plane mr-2"></i> Hire Me
                         </a>
                     </div>
                     
-                    <!-- Stats with impact -->
-                    <div class="flex gap-8 mt-12 pt-4 border-t border-white/10">
-                        <div><span class="text-[#00d4aa] font-bold text-3xl stat-number">4.5+</span><span class="ml-2 text-slate-400">Years Exp</span></div>
-                        <div><span class="text-[#00d4aa] font-bold text-3xl stat-number">99.99%</span><span class="ml-2 text-slate-400">Uptime SLA</span></div>
-                        <div><span class="text-[#00d4aa] font-bold text-3xl stat-number">50+</span><span class="ml-2 text-slate-400">Servers</span></div>
+                    <!-- Stats with impact - mobile responsive -->
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-6 sm:gap-8 mt-10 sm:mt-12 pt-4 border-t border-white/10">
+                        <div class="text-center"><span class="text-[#00d4aa] font-bold text-2xl sm:text-3xl stat-number">4.5+</span><span class="ml-1 sm:ml-2 text-slate-400 text-sm sm:text-base">Years Exp</span></div>
+                        <div class="text-center"><span class="text-[#00d4aa] font-bold text-2xl sm:text-3xl stat-number">99.99%</span><span class="ml-1 sm:ml-2 text-slate-400 text-sm sm:text-base">Uptime SLA</span></div>
+                        <div class="text-center"><span class="text-[#00d4aa] font-bold text-2xl sm:text-3xl stat-number">50+</span><span class="ml-1 sm:ml-2 text-slate-400 text-sm sm:text-base">Servers</span></div>
                     </div>
                 </div>
                 
-                <div data-aos="fade-left" data-aos-duration="1000" class="relative flex justify-center">
-                    <div class="relative w-80 h-80 lg:w-96 lg:h-96">
+                <!-- Right Content - Mobile optimized (hidden on very small screens optional) -->
+                <div data-aos="fade-left" data-aos-duration="1000" class="relative flex justify-center order-1 lg:order-2 mb-8 lg:mb-0">
+                    <div class="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
                         <div class="absolute inset-0 bg-gradient-to-tr from-[#00d4aa]/20 to-blue-600/20 rounded-full blur-3xl animate-pulse"></div>
                         <div class="relative z-10 w-full h-full flex items-center justify-center">
-                            <div class="relative w-64 h-64 lg:w-80 lg:h-80 rounded-full bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center border-4 border-[#00d4aa]/40 shadow-2xl">
-                                <i class="fas fa-cloud-upload-alt text-7xl text-[#00d4aa] animate-float"></i>
+                            <div class="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-full bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center border-4 border-[#00d4aa]/40 shadow-2xl">
+                                <i class="fas fa-cloud-upload-alt text-5xl sm:text-6xl md:text-7xl text-[#00d4aa] animate-float"></i>
                             </div>
                         </div>
-                        <div class="absolute top-0 left-0 animate-float text-5xl">⚡</div>
-                        <div class="absolute bottom-10 right-5 animate-float delay-75 text-5xl">🐧</div>
-                        <div class="absolute top-20 right-10 animate-float delay-150 text-4xl">📊</div>
-                        <div class="absolute bottom-20 left-0 animate-float delay-100 text-5xl">🔧</div>
+                        <!-- Floating icons - adjusted for mobile -->
+                        <div class="absolute top-0 left-0 animate-float text-3xl sm:text-4xl md:text-5xl">⚡</div>
+                        <div class="absolute bottom-10 right-2 sm:right-5 animate-float delay-75 text-3xl sm:text-4xl md:text-5xl">🐧</div>
+                        <div class="absolute top-16 right-4 sm:top-20 sm:right-10 animate-float delay-150 text-2xl sm:text-3xl md:text-4xl">📊</div>
+                        <div class="absolute bottom-16 left-0 animate-float delay-100 text-3xl sm:text-4xl md:text-5xl">🔧</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT - cleaner spacing -->
-    <section id="about" class="py-28 bg-[#0a0f1c]">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="grid lg:grid-cols-12 gap-10 items-start">
-                <div class="lg:col-span-5" data-aos="fade-right">
-                    <h2 class="section-header text-4xl md:text-5xl heading-font font-bold">About Me</h2>
-                    <p class="text-[#00d4aa] text-xl mt-6 font-semibold">Site Reliability · Linux Core · Automation First</p>
+    <!-- ABOUT - responsive spacing -->
+    <section id="about" class="py-16 sm:py-20 md:py-28 bg-[#0a0f1c]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+                <div class="lg:col-span-5 text-center lg:text-left" data-aos="fade-right">
+                    <h2 class="section-header text-3xl sm:text-4xl md:text-5xl heading-font font-bold">About Me</h2>
+                    <p class="text-[#00d4aa] text-lg sm:text-xl mt-4 sm:mt-6 font-semibold">Site Reliability · Linux Core · Automation First</p>
                 </div>
                 <div class="lg:col-span-7" data-aos="fade-left">
-                    <p class="text-slate-300 text-xl leading-relaxed">
+                    <p class="text-slate-300 text-base sm:text-lg md:text-xl leading-relaxed text-center lg:text-left">
                         I'm <span class="text-[#00d4aa] font-bold">Harshit Sharma</span>, a Technical Operations Engineer who turns complex infrastructure into reliable, self-healing systems.  
                         With <span class="text-white">4.5+ years</span> in the trenches, I've mastered the art of Linux server optimization, automation scripting, and building monitoring that actually prevents incidents before they happen.  
                         My mission: <span class="text-[#00d4aa]">zero-downtime, always.</span>
                     </p>
-                    <div class="grid sm:grid-cols-3 gap-5 mt-10">
-                        <div class="skill-badge rounded-2xl p-5 text-center"><i class="fas fa-rocket text-3xl text-[#00d4aa] mb-3"></i><p class="font-bold">Zero-downtime</p><p class="text-sm text-slate-400">Deployments</p></div>
-                        <div class="skill-badge rounded-2xl p-5 text-center"><i class="fas fa-chart-line text-3xl text-[#00d4aa] mb-3"></i><p class="font-bold">Proactive Monitoring</p><p class="text-sm text-slate-400">Grafana + Prometheus</p></div>
-                        <div class="skill-badge rounded-2xl p-5 text-center"><i class="fas fa-shield-alt text-3xl text-[#00d4aa] mb-3"></i><p class="font-bold">24x7 On-call</p><p class="text-sm text-slate-400">Incident Management</p></div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 mt-8 sm:mt-10">
+                        <div class="skill-badge rounded-2xl p-4 sm:p-5 text-center"><i class="fas fa-rocket text-2xl sm:text-3xl text-[#00d4aa] mb-2 sm:mb-3"></i><p class="font-bold text-sm sm:text-base">Zero-downtime</p><p class="text-xs sm:text-sm text-slate-400">Deployments</p></div>
+                        <div class="skill-badge rounded-2xl p-4 sm:p-5 text-center"><i class="fas fa-chart-line text-2xl sm:text-3xl text-[#00d4aa] mb-2 sm:mb-3"></i><p class="font-bold text-sm sm:text-base">Proactive Monitoring</p><p class="text-xs sm:text-sm text-slate-400">Grafana + Prometheus</p></div>
+                        <div class="skill-badge rounded-2xl p-4 sm:p-5 text-center"><i class="fas fa-shield-alt text-2xl sm:text-3xl text-[#00d4aa] mb-2 sm:mb-3"></i><p class="font-bold text-sm sm:text-base">24x7 On-call</p><p class="text-xs sm:text-sm text-slate-400">Incident Management</p></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- EXPERIENCE - refined journey -->
-    <section id="experience" class="py-28 bg-[#020617]">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div data-aos="fade-up"><h2 class="section-header text-4xl md:text-5xl heading-font font-bold mb-16">Professional Journey</h2></div>
-            <div class="space-y-10">
-                <div data-aos="fade-up" class="card-glass rounded-3xl p-8">
-                    <div class="flex flex-wrap justify-between items-start gap-4"><span class="px-5 py-2 bg-[#00d4aa]/20 text-[#00d4aa] rounded-full font-bold">May 2024 – Present</span><span class="text-slate-400"><i class="fas fa-map-marker-alt"></i> Gurugram</span></div>
-                    <h3 class="text-3xl font-bold mt-4">Technical Operations Engineer</h3>
-                    <p class="text-[#00d4aa] text-lg">Teledgers Technology Pvt. Ltd</p>
-                    <ul class="mt-6 space-y-3 text-slate-300">
+    <!-- EXPERIENCE - responsive cards -->
+    <section id="experience" class="py-16 sm:py-20 md:py-28 bg-[#020617]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div data-aos="fade-up" class="text-center lg:text-left"><h2 class="section-header text-3xl sm:text-4xl md:text-5xl heading-font font-bold mb-12 sm:mb-16">Professional Journey</h2></div>
+            <div class="space-y-8 sm:space-y-10">
+                <div data-aos="fade-up" class="card-glass rounded-2xl sm:rounded-3xl p-6 sm:p-8">
+                    <div class="flex flex-wrap justify-between items-start gap-3"><span class="px-4 py-2 bg-[#00d4aa]/20 text-[#00d4aa] rounded-full font-bold text-sm">May 2024 – Present</span><span class="text-slate-400 text-sm"><i class="fas fa-map-marker-alt"></i> Gurugram</span></div>
+                    <h3 class="text-2xl sm:text-3xl font-bold mt-4">Technical Operations Engineer</h3>
+                    <p class="text-[#00d4aa] text-base sm:text-lg">Teledgers Technology Pvt. Ltd</p>
+                    <ul class="mt-6 space-y-3 text-slate-300 text-sm sm:text-base">
                         <li class="flex gap-3"><i class="fas fa-check-circle text-[#00d4aa] mt-1"></i>Architected and deployed SMPP gateway clusters handling 5M+ transactions/day with 99.99% availability.</li>
                         <li class="flex gap-3"><i class="fas fa-check-circle text-[#00d4aa] mt-1"></i>Built advanced Bash automation suite reducing operational overhead by 65%.</li>
                         <li class="flex gap-3"><i class="fas fa-check-circle text-[#00d4aa] mt-1"></i>Implemented full observability stack (Grafana, Loki, Prometheus) reducing MTTR by 40%.</li>
                         <li class="flex gap-3"><i class="fas fa-check-circle text-[#00d4aa] mt-1"></i>Led zero-downtime deployment strategy using Ansible & Jenkins with canary releases.</li>
                     </ul>
                 </div>
-                <div data-aos="fade-up" data-aos-delay="100" class="card-glass rounded-3xl p-8">
-                    <div class="flex flex-wrap justify-between items-start gap-4"><span class="px-5 py-2 bg-slate-700 text-white rounded-full font-bold">Feb 2023 – May 2024</span><span class="text-slate-400"><i class="fas fa-map-marker-alt"></i> Pune</span></div>
-                    <h3 class="text-3xl font-bold mt-4">System Engineer</h3>
-                    <p class="text-[#00d4aa] text-lg">Tata Communications</p>
-                    <ul class="mt-6 space-y-3 text-slate-300">
+                <div data-aos="fade-up" data-aos-delay="100" class="card-glass rounded-2xl sm:rounded-3xl p-6 sm:p-8">
+                    <div class="flex flex-wrap justify-between items-start gap-3"><span class="px-4 py-2 bg-slate-700 text-white rounded-full font-bold text-sm">Feb 2023 – May 2024</span><span class="text-slate-400 text-sm"><i class="fas fa-map-marker-alt"></i> Pune</span></div>
+                    <h3 class="text-2xl sm:text-3xl font-bold mt-4">System Engineer</h3>
+                    <p class="text-[#00d4aa] text-base sm:text-lg">Tata Communications</p>
+                    <ul class="mt-6 space-y-3 text-slate-300 text-sm sm:text-base">
                         <li class="flex gap-3"><i class="fas fa-check-circle text-[#00d4aa] mt-1"></i>Automated infrastructure monitoring across 30+ servers using Python/Bash scripts.</li>
                         <li class="flex gap-3"><i class="fas fa-check-circle text-[#00d4aa] mt-1"></i>Managed AWS EC2, S3, IAM and built Jenkins declarative pipelines for CI/CD.</li>
                         <li class="flex gap-3"><i class="fas fa-check-circle text-[#00d4aa] mt-1"></i>Integrated ELK stack and reduced alert noise by 60% with intelligent log aggregation.</li>
                     </ul>
                 </div>
-                <div data-aos="fade-up" data-aos-delay="200" class="card-glass rounded-3xl p-8">
-                    <div class="flex flex-wrap justify-between items-start gap-4"><span class="px-5 py-2 bg-slate-700 text-white rounded-full font-bold">Jul 2021 – Feb 2023</span><span class="text-slate-400"><i class="fas fa-map-marker-alt"></i> Mohali</span></div>
-                    <h3 class="text-3xl font-bold mt-4">Junior Engineer</h3>
-                    <p class="text-[#00d4aa] text-lg">V-Con Integrated Solutions Pvt. Ltd</p>
-                    <ul class="mt-6 space-y-3 text-slate-300">
+                <div data-aos="fade-up" data-aos-delay="200" class="card-glass rounded-2xl sm:rounded-3xl p-6 sm:p-8">
+                    <div class="flex flex-wrap justify-between items-start gap-3"><span class="px-4 py-2 bg-slate-700 text-white rounded-full font-bold text-sm">Jul 2021 – Feb 2023</span><span class="text-slate-400 text-sm"><i class="fas fa-map-marker-alt"></i> Mohali</span></div>
+                    <h3 class="text-2xl sm:text-3xl font-bold mt-4">Junior Engineer</h3>
+                    <p class="text-[#00d4aa] text-base sm:text-lg">V-Con Integrated Solutions Pvt. Ltd</p>
+                    <ul class="mt-6 space-y-3 text-slate-300 text-sm sm:text-base">
                         <li class="flex gap-3"><i class="fas fa-check-circle text-[#00d4aa] mt-1"></i>Maintained 99.9% uptime for high-availability services with 24×7 on-call support.</li>
                         <li class="flex gap-3"><i class="fas fa-check-circle text-[#00d4aa] mt-1"></i>Developed shell automation for API testing (REST, XML, JSON) and VM provisioning.</li>
                         <li class="flex gap-3"><i class="fas fa-check-circle text-[#00d4aa] mt-1"></i>Managed ServiceNow incident lifecycle and root cause analysis.</li>
@@ -302,67 +304,67 @@
         </div>
     </section>
 
-    <!-- PROJECTS - premium cards -->
-    <section id="projects" class="py-28 bg-gradient-to-b from-[#0a0f1c] to-[#020617]">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div data-aos="fade-up"><h2 class="section-header text-4xl md:text-5xl heading-font font-bold">Flagship Projects</h2><p class="text-slate-400 text-lg mt-4 mb-12">Production-grade systems I own and operate</p></div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div data-aos="zoom-in" class="card-glass rounded-2xl p-8">
-                    <div class="text-6xl mb-5">📡</div>
-                    <h3 class="text-2xl font-bold">Carrier-grade SMPP Gateway</h3>
-                    <p class="text-slate-400 mt-3">High-throughput SMS gateway handling 10k+ TPS. Kannel, Redis cluster, MySQL replication, and automated failover.</p>
+    <!-- PROJECTS - responsive cards grid -->
+    <section id="projects" class="py-16 sm:py-20 md:py-28 bg-gradient-to-b from-[#0a0f1c] to-[#020617]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div data-aos="fade-up" class="text-center lg:text-left"><h2 class="section-header text-3xl sm:text-4xl md:text-5xl heading-font font-bold">Flagship Projects</h2><p class="text-slate-400 text-base sm:text-lg mt-4 mb-8 sm:mb-12">Production-grade systems I own and operate</p></div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <div data-aos="zoom-in" class="card-glass rounded-2xl p-6 sm:p-8">
+                    <div class="text-4xl sm:text-5xl md:text-6xl mb-4 sm:mb-5">📡</div>
+                    <h3 class="text-xl sm:text-2xl font-bold">Carrier-grade SMPP Gateway</h3>
+                    <p class="text-slate-400 mt-3 text-sm sm:text-base">High-throughput SMS gateway handling 10k+ TPS. Kannel, Redis cluster, MySQL replication, and automated failover.</p>
                     <div class="flex flex-wrap gap-2 mt-6"><span class="text-xs bg-white/10 px-3 py-1.5 rounded-full">Kannel</span><span class="text-xs bg-white/10 px-3 py-1.5 rounded-full">SMPP 3.4</span><span class="text-xs bg-white/10 px-3 py-1.5 rounded-full">Redis Sentinel</span></div>
                 </div>
-                <div data-aos="zoom-in" data-aos-delay="100" class="card-glass rounded-2xl p-8">
-                    <div class="text-6xl mb-5">🔗</div>
-                    <h3 class="text-2xl font-bold">Distributed Ledger Network</h3>
-                    <p class="text-slate-400 mt-3">Enterprise DLT platform with 5+ nodes, consensus mechanisms, real-time Grafana dashboards and on-prem security hardening.</p>
+                <div data-aos="zoom-in" data-aos-delay="100" class="card-glass rounded-2xl p-6 sm:p-8">
+                    <div class="text-4xl sm:text-5xl md:text-6xl mb-4 sm:mb-5">🔗</div>
+                    <h3 class="text-xl sm:text-2xl font-bold">Distributed Ledger Network</h3>
+                    <p class="text-slate-400 mt-3 text-sm sm:text-base">Enterprise DLT platform with 5+ nodes, consensus mechanisms, real-time Grafana dashboards and on-prem security hardening.</p>
                     <div class="flex flex-wrap gap-2 mt-6"><span class="text-xs bg-white/10 px-3 py-1.5 rounded-full">Hyperledger</span><span class="text-xs bg-white/10 px-3 py-1.5 rounded-full">Docker Swarm</span><span class="text-xs bg-white/10 px-3 py-1.5 rounded-full">Go</span></div>
                 </div>
-                <div data-aos="zoom-in" data-aos-delay="200" class="card-glass rounded-2xl p-8">
-                    <div class="text-6xl mb-5">📊</div>
-                    <h3 class="text-2xl font-bold">Unified Observability Stack</h3>
-                    <p class="text-slate-400 mt-3">Enterprise monitoring solution: Prometheus, Grafana, Loki, Tempo, and Nagios with AI-based anomaly detection.</p>
+                <div data-aos="zoom-in" data-aos-delay="200" class="card-glass rounded-2xl p-6 sm:p-8">
+                    <div class="text-4xl sm:text-5xl md:text-6xl mb-4 sm:mb-5">📊</div>
+                    <h3 class="text-xl sm:text-2xl font-bold">Unified Observability Stack</h3>
+                    <p class="text-slate-400 mt-3 text-sm sm:text-base">Enterprise monitoring solution: Prometheus, Grafana, Loki, Tempo, and Nagios with AI-based anomaly detection.</p>
                     <div class="flex flex-wrap gap-2 mt-6"><span class="text-xs bg-white/10 px-3 py-1.5 rounded-full">Prometheus</span><span class="text-xs bg-white/10 px-3 py-1.5 rounded-full">Grafana</span><span class="text-xs bg-white/10 px-3 py-1.5 rounded-full">Loki</span></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SKILLS with modern badges -->
-    <section id="skills" class="py-28 bg-[#0a0f1c]">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div data-aos="fade-up"><h2 class="section-header text-4xl md:text-5xl heading-font font-bold mb-12">Technical Arsenal</h2></div>
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-5">
-                <div class="skill-badge p-5 rounded-2xl text-center"><i class="fab fa-linux text-4xl text-[#00d4aa] mb-3"></i><p class="font-semibold">Linux (RHEL/Ubuntu)</p></div>
-                <div class="skill-badge p-5 rounded-2xl text-center"><i class="fas fa-code text-4xl text-[#00d4aa] mb-3"></i><p class="font-semibold">Bash/Python</p></div>
-                <div class="skill-badge p-5 rounded-2xl text-center"><i class="fas fa-chart-line text-4xl text-[#00d4aa] mb-3"></i><p class="font-semibold">Grafana/Prometheus</p></div>
-                <div class="skill-badge p-5 rounded-2xl text-center"><i class="fab fa-jenkins text-4xl text-[#00d4aa] mb-3"></i><p class="font-semibold">Jenkins/Ansible</p></div>
-                <div class="skill-badge p-5 rounded-2xl text-center"><i class="fab fa-aws text-4xl text-[#00d4aa] mb-3"></i><p class="font-semibold">AWS/Docker</p></div>
-                <div class="skill-badge p-5 rounded-2xl text-center"><i class="fas fa-database text-4xl text-[#00d4aa] mb-3"></i><p class="font-semibold">MySQL/Redis</p></div>
+    <!-- SKILLS - responsive grid -->
+    <section id="skills" class="py-16 sm:py-20 md:py-28 bg-[#0a0f1c]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div data-aos="fade-up" class="text-center lg:text-left"><h2 class="section-header text-3xl sm:text-4xl md:text-5xl heading-font font-bold mb-10 sm:mb-12">Technical Arsenal</h2></div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-5">
+                <div class="skill-badge p-4 sm:p-5 rounded-2xl text-center"><i class="fab fa-linux text-2xl sm:text-3xl md:text-4xl text-[#00d4aa] mb-2 sm:mb-3"></i><p class="font-semibold text-xs sm:text-sm">Linux (RHEL/Ubuntu)</p></div>
+                <div class="skill-badge p-4 sm:p-5 rounded-2xl text-center"><i class="fas fa-code text-2xl sm:text-3xl md:text-4xl text-[#00d4aa] mb-2 sm:mb-3"></i><p class="font-semibold text-xs sm:text-sm">Bash/Python</p></div>
+                <div class="skill-badge p-4 sm:p-5 rounded-2xl text-center"><i class="fas fa-chart-line text-2xl sm:text-3xl md:text-4xl text-[#00d4aa] mb-2 sm:mb-3"></i><p class="font-semibold text-xs sm:text-sm">Grafana/Prometheus</p></div>
+                <div class="skill-badge p-4 sm:p-5 rounded-2xl text-center"><i class="fab fa-jenkins text-2xl sm:text-3xl md:text-4xl text-[#00d4aa] mb-2 sm:mb-3"></i><p class="font-semibold text-xs sm:text-sm">Jenkins/Ansible</p></div>
+                <div class="skill-badge p-4 sm:p-5 rounded-2xl text-center"><i class="fab fa-aws text-2xl sm:text-3xl md:text-4xl text-[#00d4aa] mb-2 sm:mb-3"></i><p class="font-semibold text-xs sm:text-sm">AWS/Docker</p></div>
+                <div class="skill-badge p-4 sm:p-5 rounded-2xl text-center"><i class="fas fa-database text-2xl sm:text-3xl md:text-4xl text-[#00d4aa] mb-2 sm:mb-3"></i><p class="font-semibold text-xs sm:text-sm">MySQL/Redis</p></div>
             </div>
-            <div class="mt-12 flex flex-wrap gap-3 justify-center">
-                <span class="skill-badge px-6 py-3 rounded-full">SMPP/REST APIs</span>
-                <span class="skill-badge px-6 py-3 rounded-full">TCP/IP · DNS</span>
-                <span class="skill-badge px-6 py-3 rounded-full">LVM · RAID · NFS</span>
-                <span class="skill-badge px-6 py-3 rounded-full">ServiceNow · Jira</span>
-                <span class="skill-badge px-6 py-3 rounded-full">Git · GitOps</span>
-                <span class="skill-badge px-6 py-3 rounded-full">Kubernetes (Basics)</span>
+            <div class="mt-8 sm:mt-12 flex flex-wrap gap-2 sm:gap-3 justify-center">
+                <span class="skill-badge px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm">SMPP/REST APIs</span>
+                <span class="skill-badge px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm">TCP/IP · DNS</span>
+                <span class="skill-badge px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm">LVM · RAID · NFS</span>
+                <span class="skill-badge px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm">ServiceNow · Jira</span>
+                <span class="skill-badge px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm">Git · GitOps</span>
+                <span class="skill-badge px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm">Kubernetes (Basics)</span>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT / FOOTER premium - NO "Designed for reliability" credit removed -->
-    <footer id="contact" class="bg-[#020617] border-t border-white/10 py-12">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-                <div class="flex gap-6 flex-wrap justify-center">
-                    <a href="https://github.com/hs31152" target="_blank" class="flex items-center gap-2 text-slate-400 hover:text-[#00d4aa] transition"><i class="fab fa-github text-2xl"></i> GitHub</a>
-                    <a href="https://www.linkedin.com/in/harshit-sharma-13aba4192/" target="_blank" class="flex items-center gap-2 text-slate-400 hover:text-[#00d4aa] transition"><i class="fab fa-linkedin text-2xl"></i> LinkedIn</a>
-                    <a href="mailto:harshitsharma31152@gmail.com" class="flex items-center gap-2 text-slate-400 hover:text-[#00d4aa] transition"><i class="fas fa-envelope text-xl"></i> harshitsharma31152@gmail.com</a>
-                    <a href="tel:+918219673715" class="flex items-center gap-2 text-slate-400 hover:text-[#00d4aa] transition"><i class="fas fa-phone-alt text-xl"></i> +91-8219673715</a>
+    <!-- CONTACT / FOOTER - responsive -->
+    <footer id="contact" class="bg-[#020617] border-t border-white/10 py-8 sm:py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8">
+                <div class="flex flex-wrap gap-4 sm:gap-6 justify-center">
+                    <a href="https://github.com/hs31152" target="_blank" class="flex items-center gap-2 text-slate-400 hover:text-[#00d4aa] transition text-sm sm:text-base"><i class="fab fa-github text-xl sm:text-2xl"></i> GitHub</a>
+                    <a href="https://www.linkedin.com/in/harshit-sharma-13aba4192/" target="_blank" class="flex items-center gap-2 text-slate-400 hover:text-[#00d4aa] transition text-sm sm:text-base"><i class="fab fa-linkedin text-xl sm:text-2xl"></i> LinkedIn</a>
+                    <a href="mailto:harshitsharma31152@gmail.com" class="flex items-center gap-2 text-slate-400 hover:text-[#00d4aa] transition text-sm sm:text-base"><i class="fas fa-envelope text-base sm:text-xl"></i> harshitsharma31152@gmail.com</a>
+                    <a href="tel:+918219673715" class="flex items-center gap-2 text-slate-400 hover:text-[#00d4aa] transition text-sm sm:text-base"><i class="fas fa-phone-alt text-base sm:text-xl"></i> +91-8219673715</a>
                 </div>
-                <div class="text-slate-500 text-sm text-center">
+                <div class="text-slate-500 text-xs sm:text-sm text-center">
                     <i class="fas fa-shield-alt text-[#00d4aa] mr-1"></i> 24/7 Operational Excellence
                 </div>
             </div>
@@ -370,10 +372,10 @@
     </footer>
 
     <script>
-        AOS.init({ duration: 800, once: true, offset: 120 });
+        AOS.init({ duration: 800, once: true, offset: 100 });
         
-        // Typed text effect for hero section - personal hook
-        const phrases = ["Linux , Automation , SRE"];
+        // Typed text effect for hero section
+        const phrases = ["Linux ", "Automation", "SRE"];
         let i = 0;
         let j = 0;
         let currentPhrase = [];
